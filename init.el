@@ -80,3 +80,13 @@ ELPA (or MELPA).")
  (run-at-time 5 nil 'prelude-tip-of-the-day))
 
 ;;; init.el ends here
+
+;;; Start of my configuration
+
+;; In markdown mode, we want to auto-fill and check spelling
+(add-hook 'markdown-mode-hook 'turn-on-auto-fill)
+(add-hook 'markdown-mode-hook 'turn-on-flyspell)
+(add-hook 'markdown-mode-hook (lambda () (set-fill-column 100)))
+
+;; .page extension is a markdown file
+(setq auto-mode-alist (cons '("\\.page" . markdown-mode) auto-mode-alist))
